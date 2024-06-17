@@ -1,8 +1,8 @@
 'use client'
-import SmartContract from './components/SmartContract'
+import SmartContract from './NEWcomponents/SmartContract'
 import { ThirdwebProvider, metamaskWallet } from "@thirdweb-dev/react";
-import UserInfo from './components/UserInfo';
-import Login from './components/Login';
+import UserInfo from './NEWcomponents/UserInfo';
+import Login from './NEWcomponents/Login';
 
 const HomePage = () => {
   return (
@@ -16,9 +16,7 @@ const HomePage = () => {
       activeChain="sepolia"
     >
       <div>
-        <SmartContract />
-       <UserInfo/>
-       <Login/>
+      <Login/>
       </div>
     </ThirdwebProvider>
   );

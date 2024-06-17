@@ -8,6 +8,7 @@ import {
   ConnectWallet,
   useSigner,
 } from "@thirdweb-dev/react";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -17,6 +18,7 @@ const Login = () => {
   const [contract, setContract] = useState(null);
   const signer = useSigner();
   const contractAddress = "0xd9267265F97a5249272F84Ea418510750B91bA89";
+  const route = useRouter();
 
   useEffect(() => {
     if (signer) {
@@ -30,7 +32,9 @@ const Login = () => {
       try {
         const tx = await contract.register(username, password);
         await tx.wait();
+        console.log(tx);
         setRegisterMessage("Registration successful!");
+      
       } catch (error) {
         console.error(error);
         setRegisterMessage("Registration failed. Please try again.");
@@ -44,6 +48,7 @@ const Login = () => {
         const isLoginSuccessful = await contract.login(username, password);
         if (isLoginSuccessful) {
           setLoginMessage("Login successful!");
+            route.push("/Shop");
         } else {
           setLoginMessage("Login failed. Invalid username or password.");
         }
