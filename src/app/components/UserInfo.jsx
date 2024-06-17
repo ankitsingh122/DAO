@@ -88,7 +88,7 @@ function UserInfo() {
                   contractAddress="0xecDc645e86Fa7834983bd1402890CF1dd3050F5F"
                   action={handleSetNewValues}
                 >
-                  Set new values
+                  Set new value
                 </Web3Button>
               </>
             )}
