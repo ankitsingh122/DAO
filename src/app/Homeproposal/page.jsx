@@ -11,8 +11,6 @@ import Link from "next/link";
 import { Table, TableBody, TableRow, TableCell } from "@/components/ui/table";
 import { ConnectWallet } from "@thirdweb-dev/react";
 
-
-
 export default function HomeProposal() {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center">
@@ -20,9 +18,6 @@ export default function HomeProposal() {
         <div className="flex items-center">
           <LogInIcon className="h-8 w-8 text-pink-500" />
         </div>
-        {/* <Button variant="outline" className="text-pink-500 border-pink-500">
-          Connect wallet
-        </Button> */}
         <ConnectWallet />
       </header>
       <main className="flex flex-col items-center w-full max-w-4xl mt-8 space-y-8">
@@ -37,13 +32,9 @@ export default function HomeProposal() {
             <CardTitle>Creating a Proposal</CardTitle>
             <CardDescription>
               On Fish.vote, anyone can publish a{" "}
-              <Link
-                href="#"
-                className="text-blue-500 underline"
-                prefetch={false}
-              >
+             
                 Crowd Proposal
-              </Link>
+           
               . Then comes the most important work: gathering support from the
               broader UNI community. We recommend sharing the link to your
               proposal publicly and finding others who support you. Once your
@@ -75,126 +66,6 @@ export default function HomeProposal() {
           <CardContent>
             <Table>
               <TableBody>
-                {/* <TableRow>
-                  <TableCell className="flex flex-col">
-                    <span>
-                      Reduce the UNI proposal submission threshold to 2.5M
-                    </span>
-                    <span className="text-sm text-gray-500">4.4 votes</span>
-                  </TableCell>
-                  <TableCell className="flex items-center">
-                    <Badge
-                      variant="default"
-                      className="bg-green-500 text-white"
-                    >
-                      Proposed
-                    </Badge>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell className="flex flex-col">
-                    <span>
-                      Uniswap DAO can help 80K UNI to Turkiye for relief after
-                      the big earthquake disaster
-                    </span>
-                    <span className="text-sm text-gray-500">1.2 votes</span>
-                  </TableCell>
-                  <TableCell className="flex items-center">
-                    <Badge
-                      variant="default"
-                      className="bg-yellow-500 text-white"
-                    >
-                      In Progress
-                    </Badge>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell className="flex flex-col">
-                    <span>Create a NFT Farm -- Stake UNI and earn NFTs</span>
-                    <span className="text-sm text-gray-500">1 vote</span>
-                  </TableCell>
-                  <TableCell className="flex items-center">
-                    <Badge
-                      variant="default"
-                      className="bg-yellow-500 text-white"
-                    >
-                      In Progress
-                    </Badge>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell className="flex flex-col">
-                    <span>Help to Support GNSH project</span>
-                    <span className="text-sm text-gray-500">0 votes</span>
-                  </TableCell>
-                  <TableCell className="flex items-center">
-                    <Badge
-                      variant="default"
-                      className="bg-yellow-500 text-white"
-                    >
-                      In Progress
-                    </Badge>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell className="flex flex-col">
-                    <span>UniCred</span>
-                    <span className="text-sm text-gray-500">0 votes</span>
-                  </TableCell>
-                  <TableCell className="flex items-center">
-                    <Badge
-                      variant="default"
-                      className="bg-yellow-500 text-white"
-                    >
-                      In Progress
-                    </Badge>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell className="flex flex-col">
-                    <span>
-                      Uniswap pools are already been used as scam. protection
-                      tools suggestions
-                    </span>
-                    <span className="text-sm text-gray-500">0 votes</span>
-                  </TableCell>
-                  <TableCell className="flex items-center">
-                    <Badge
-                      variant="default"
-                      className="bg-yellow-500 text-white"
-                    >
-                      In Progress
-                    </Badge>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell className="flex flex-col">
-                    <span>The Next Uniswap Airdrop</span>
-                    <span className="text-sm text-gray-500">0 votes</span>
-                  </TableCell>
-                  <TableCell className="flex items-center">
-                    <Badge
-                      variant="default"
-                      className="bg-yellow-500 text-white"
-                    >
-                      In Progress
-                    </Badge>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell className="flex flex-col">
-                    <span>The Next Uniswap Airdrop</span>
-                    <span className="text-sm text-gray-500">0 votes</span>
-                  </TableCell>
-                  <TableCell className="flex items-center">
-                    <Badge
-                      variant="default"
-                      className="bg-yellow-500 text-white"
-                    >
-                      In Progress
-                    </Badge>
-                  </TableCell>
-                </TableRow> */}
               </TableBody>
             </Table>
           </CardContent>

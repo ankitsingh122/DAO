@@ -22,7 +22,6 @@ export default function ProposalDetail({ params }) {
   const contractAddress = "0x1f49707d48Cc49FfF79617D9A1b8494F7D74b984";
 
   useEffect(() => {
-    console.log("params", params);
     const id = params?.id;
     const fetchProposal = async () => {
       try {
@@ -35,7 +34,7 @@ export default function ProposalDetail({ params }) {
           provider
         );
 
-        const [, title, description, voteCount, executed] =
+        const [ ,title, description, voteCount, executed] =
           await contract.getProp(id);
         const requiredVotes = await contract.REQUIRED_VOTES();
 
@@ -43,7 +42,6 @@ export default function ProposalDetail({ params }) {
           throw new Error("Proposal data not found");
         }
 
-        console.log(title, description, voteCount, requiredVotes, executed);
         setProposal({
           title,
           description,
@@ -70,11 +68,24 @@ export default function ProposalDetail({ params }) {
         proposalABI,
         signer
       );
-      await contract.vote(id);
+
+     const tx = await contract.vote(id);
+     await tx.wait();
       toast.success("Voted successfully!");
+
+      
+      const [, , , voteCount] = await contract.getProp(id);
+      setProposal((prev) => ({
+        ...prev,
+        voteCount: voteCount.toString(),
+      }));
     } catch (error) {
       console.error("Error voting on proposal:", error);
-      toast.error("Error voting on proposal.");
+      if (error.message.includes("Already voted")) {
+        toast.info("You have already voted on this proposal.");
+      } else {
+        toast.error("Error voting on proposal.");
+      }
     }
   };
 
@@ -119,7 +130,7 @@ export default function ProposalDetail({ params }) {
                 <Button onClick={handleVote}>Vote</Button>
               </CardContent>
             </Card>
-            <ToastContainer/>
+            <ToastContainer />
           </>
         ) : (
           <p>Proposal not found</p>

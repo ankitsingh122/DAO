@@ -84,13 +84,9 @@ export default function Proposal() {
             <CardTitle>Creating a proposal</CardTitle>
             <CardDescription>
               On Fish.vote, anyone can publish a{" "}
-              <Link
-                href="#"
-                className="text-blue-500 underline"
-                prefetch={false}
-              >
+              
                 Crowd Proposal
-              </Link>
+             
               . Then comes the most important work: gathering support from the
               broader UNI community. We recommend sharing the link to your
               proposal publicly and finding others who support you. Once your
@@ -117,9 +113,9 @@ export default function Proposal() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Title</TableHead>
-                  <TableHead className="text-center">Vote Count</TableHead>
-                  <TableHead className="text-right">Status</TableHead>
+                  <TableHead className = 'font-bold'>Title</TableHead>
+                  <TableHead className="text-center font-bold">Vote Count</TableHead>
+                  <TableHead className="text-right font-bold">Status</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
