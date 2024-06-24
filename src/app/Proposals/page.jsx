@@ -1,5 +1,4 @@
 'use client'
-
 import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import { Button } from "@/components/ui/button";
@@ -57,7 +56,7 @@ export default function Proposal() {
 
     fetchProposals();
   }, []);
-  
+
   const router = useRouter();
 
   const handleRowClick = (index) => {
@@ -83,15 +82,11 @@ export default function Proposal() {
           <CardHeader>
             <CardTitle>Creating a proposal</CardTitle>
             <CardDescription>
-              On Fish.vote, anyone can publish a{" "}
-              
-                Crowd Proposal
-             
-              . Then comes the most important work: gathering support from the
-              broader UNI community. We recommend sharing the link to your
-              proposal publicly and finding others who support you. Once your
-              proposal reaches 400 delegate votes, it will be displayed on the
-              Fish.vote home page.
+              On Fish.vote, anyone can publish a Crowd Proposal . Then comes the
+              most important work: gathering support from the broader UNI
+              community. We recommend sharing the link to your proposal publicly
+              and finding others who support you. Once your proposal reaches 400
+              delegate votes, it will be displayed on the Fish.vote home page.
               <br />
               <br />
               Until today, only whales with 10 million votes could submit
@@ -113,8 +108,10 @@ export default function Proposal() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead className = 'font-bold'>Title</TableHead>
-                  <TableHead className="text-center font-bold">Vote Count</TableHead>
+                  <TableHead className="font-bold">Title</TableHead>
+                  <TableHead className="text-center font-bold">
+                    Vote Count
+                  </TableHead>
                   <TableHead className="text-right font-bold">Status</TableHead>
                 </TableRow>
               </TableHeader>
@@ -133,16 +130,17 @@ export default function Proposal() {
                       onClick={() => handleRowClick(index)}
                     >
                       <TableCell>{proposal.title}</TableCell>
-
                       <TableCell className="text-center">
                         {proposal.voteCount.toString()} votes
                       </TableCell>
                       <TableCell className="text-right">
                         <Badge
                           variant="default"
-                          className={`bg-${
-                            proposal.executed ? "green" : "yellow"
-                          }-500 text-white`}
+                          className={
+                            proposal.executed
+                              ? "bg-green-500 text-white"
+                              : "bg-yellow-500 text-white"
+                          }
                         >
                           {proposal.executed ? "Proposed" : "In Progress"}
                         </Badge>
