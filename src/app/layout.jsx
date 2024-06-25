@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThirdwebProvider, metamaskWallet } from "@thirdweb-dev/react";
 import { Suspense } from "react";
-import loading from "./loading";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -34,7 +34,7 @@ export default function ProposalDetail({ params }) {
           provider
         );
 
-        const [ ,title, description, voteCount, executed] =
+        const [ ,title, description, voteCount,] =
           await contract.getProp(id);
         const requiredVotes = await contract.REQUIRED_VOTES();
 
@@ -101,7 +101,10 @@ export default function ProposalDetail({ params }) {
       </header>
       <main className="flex flex-col items-center w-full max-w-4xl mt-8 space-y-8">
         {isLoading ? (
-          <p>Loading...</p>
+          <div className="loading-container">
+            <div className="spinner"></div>
+            <p>Loading...</p>
+          </div>
         ) : proposal ? (
           <>
             <div className="w-full max-w-md mb-4">
