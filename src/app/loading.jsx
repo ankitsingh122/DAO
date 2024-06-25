@@ -1,11 +1,12 @@
 'use client'
 
-function loading() {
+function Loading() {
   return (
-    <div>
-      
+    <div className="loading-container">
+      <div className="spinner"></div>
+      <p>Loading...</p>
     </div>
-  )
+  );
 }
 
-export default loading;
+export default Loading;
