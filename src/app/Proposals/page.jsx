@@ -80,7 +80,7 @@ export default function Proposal() {
         </div>
         <Card className="mx-auto w-full max-w-screen-md text-center">
           <CardHeader>
-            <CardTitle>Creating a proposal</CardTitle>
+            <CardTitle>Creating a Proposal</CardTitle>
             <CardDescription>
               On Fish.vote, anyone can publish a Crowd Proposal . Then comes the
               most important work: gathering support from the broader UNI

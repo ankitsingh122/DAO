@@ -8,7 +8,7 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import Link from "next/link";
-import { Table, TableBody, TableRow, TableCell } from "@/components/ui/table";
+import { Table, TableBody } from "@/components/ui/table";
 import { ConnectWallet } from "@thirdweb-dev/react";
 
 export default function HomeProposal() {
@@ -31,15 +31,11 @@ export default function HomeProposal() {
           <CardHeader>
             <CardTitle>Creating a Proposal</CardTitle>
             <CardDescription>
-              On Fish.vote, anyone can publish a{" "}
-             
-                Crowd Proposal
-           
-              . Then comes the most important work: gathering support from the
-              broader UNI community. We recommend sharing the link to your
-              proposal publicly and finding others who support you. Once your
-              proposal reaches 400 delegate votes, it will be displayed on the
-              Fish.vote home page.
+              On Fish.vote, anyone can publish a Crowd Proposal . Then comes the
+              most important work: gathering support from the broader UNI
+              community. We recommend sharing the link to your proposal publicly
+              and finding others who support you. Once your proposal reaches 400
+              delegate votes, it will be displayed on the Fish.vote home page.
               <br />
               <br />
               Until today, only whales with 10 million votes could submit
@@ -54,8 +50,27 @@ export default function HomeProposal() {
             <Link href="/CreateProposal">
               <Link href="/Proposals">
                 {" "}
-                <CardDescription className="text-center mt-5 text-red-500 ">
-                  Read new proposals
+                <CardDescription className="mt-5 text-center">
+                  Nothing here yet <br />
+                  <span className="text-red-500">
+                    Read new proposals
+                    <svg
+                      className="inline ml-2"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      width="16"
+                      height="16"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </span>
                 </CardDescription>
               </Link>
               <Button className="bg-pink-500 text-white mt-5">
@@ -65,8 +80,7 @@ export default function HomeProposal() {
           </CardHeader>
           <CardContent>
             <Table>
-              <TableBody>
-              </TableBody>
+              <TableBody></TableBody>
             </Table>
           </CardContent>
         </Card>
