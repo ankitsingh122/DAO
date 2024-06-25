@@ -82,7 +82,9 @@ export default function ProposalDetail({ params }) {
     } catch (error) {
       console.error("Error voting on proposal:", error);
       if (error.message.includes("Already voted")) {
-        toast.info("You have already voted on this proposal.");
+        toast.info("You have already voted on this proposal." {
+    toastId: 'success1',
+});
       } else {
         toast.error("Error voting on proposal.");
       }

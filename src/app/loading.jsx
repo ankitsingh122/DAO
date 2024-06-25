@@ -1,4 +1,4 @@
-
+'use client'
 
 function loading() {
   return (
@@ -8,4 +8,4 @@ function loading() {
   )
 }
 
-export default loading
+export default loading;
