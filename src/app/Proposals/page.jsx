@@ -111,15 +111,19 @@ export default function Proposal() {
           </CardHeader>
           <CardContent>
             <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="font-bold">Title</TableHead>
-                  <TableHead className="text-center font-bold">
+              {/* <TableHeader> */}
+                {/* <TableRow> */}
+                  {/* <TableHead className="w-1/2 text-left font-bold">
+                    Title
+                  </TableHead> */}
+                  {/* <TableHead className="w-1/3 text-center font-bold">
                     Vote Count
-                  </TableHead>
-                  <TableHead className="text-right font-bold">Status</TableHead>
-                </TableRow>
-              </TableHeader>
+                  </TableHead> */}
+                  {/* <TableHead className="w-1/2 text-right font-bold">
+                    Status
+                  </TableHead> */}
+                {/* </TableRow> */}
+              {/* </TableHeader> */}
               <TableBody>
                 {isLoading ? (
                   <TableRow>
@@ -134,18 +138,19 @@ export default function Proposal() {
                       className="cursor-pointer"
                       onClick={() => handleRowClick(index)}
                     >
-                      <TableCell>{proposal.title}</TableCell>
-                      <TableCell className="text-center">
+                      <TableCell className="w-4/5">
+                        <span className=" text-lg font-medium">{proposal.title}</span> <br />{" "}
                         {proposal.voteCount.toString()} votes
                       </TableCell>
-                      <TableCell className="text-right">
+                      {/* <TableCell className="w-1/3 text-center"></TableCell> */}
+                      <TableCell className="w-1/2 text-right text-xs">
                         <Badge
                           variant="default"
                           className={`inline-block px-2 py-1 rounded-full ${
                             proposal.executed
                               ? "bg-green-500 text-white"
                               : "bg-yellow-500 text-white"
-                          }
+                          }`}
                         >
                           {proposal.executed ? "Proposed" : "In Progress"}
                         </Badge>
