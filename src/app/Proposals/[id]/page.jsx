@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardHeader,
@@ -34,7 +35,7 @@ export default function ProposalDetail({ params }) {
           provider
         );
 
-        const [ ,title, description, voteCount,] =
+        const [, title, description, voteCount, executed] =
           await contract.getProp(id);
         const requiredVotes = await contract.REQUIRED_VOTES();
 
@@ -45,6 +46,7 @@ export default function ProposalDetail({ params }) {
         setProposal({
           title,
           description,
+          executed,
           voteCount: voteCount.toString(),
           requiredVotes: requiredVotes.toString(),
         });
@@ -69,11 +71,10 @@ export default function ProposalDetail({ params }) {
         signer
       );
 
-     const tx = await contract.vote(id);
-     await tx.wait();
+      const tx = await contract.vote(id);
+      await tx.wait();
       toast.success("Voted successfully!");
 
-      
       const [, , , voteCount] = await contract.getProp(id);
       setProposal((prev) => ({
         ...prev,
@@ -99,39 +100,89 @@ export default function ProposalDetail({ params }) {
         </div>
         <ConnectWallet />
       </header>
-      <main className="flex flex-col items-center w-full max-w-4xl mt-8 space-y-8">
+      <main className="flex flex-col  w-full max-w-4xl mt-8 space-y-8">
         {isLoading ? (
-<div className="loading-container">
-      <div className="spinner"></div>
-      <p>Loading...</p>
-    </div>
+          <div className="loading-container">
+            <div className="spinner"></div>
+            <p>Loading...</p>
+          </div>
         ) : proposal ? (
           <>
-            <div className="w-full max-w-md mb-4">
-              <div className="relative h-4 bg-gray-200 rounded-full">
-                <div
-                  className="absolute h-4 bg-pink-500 rounded-full"
-                  style={{
-                    width: `${
-                      (proposal.voteCount / proposal.requiredVotes) * 100
-                    }%`,
-                  }}
-                ></div>
-              </div>
-              <div className="text-center mt-2">
-                Votes: {proposal.voteCount} / {proposal.requiredVotes}
-              </div>
+            <div className="mx-auto w-full max-w-screen-sm justify-start mb-4">
+              <Badge
+                variant="default"
+                className={
+                  proposal.executed
+                    ? "bg-green-500 text-white"
+                    : "bg-yellow-500 text-white"
+                }
+              >
+                {proposal.executed ? "Proposed" : "In Progress"}
+              </Badge>
+              <h1 className="mt-5 text-4xl font-semibold">{proposal.title}</h1>
             </div>
-            <Card className="w-screen max-w-md">
-              <CardHeader>
-                <CardTitle className="text-center">{proposal.title}</CardTitle>
-                <CardDescription className="text-center">
-                  {proposal.description}
-                </CardDescription>
+
+            <Card className="mx-auto w-full max-w-screen-sm">
+              <CardHeader className="">
+                <div className="flex justify-between ">
+                  <h1 className="text-center font-semibold mt-2 md:text-xl ">
+                    Support progress
+                  </h1>
+                  <Button
+                    className="bg-pink-500 text-white"
+                    onClick={handleVote}
+                  >
+                    Vote Now
+                  </Button>
+                </div>
+                <hr />
               </CardHeader>
-              <CardContent className="flex flex-col items-center">
-                <Button onClick={handleVote}>Vote</Button>
-              </CardContent>
+              <CardDescription className="p-6">
+                <div className="w-full max-w-screen-sm mb-4">
+                  <div className="relative h-4 bg-pink-200 rounded-full">
+                    <div
+                      className="absolute h-4 bg-pink-500 rounded-full"
+                      style={{
+                        width: `${
+                          (proposal.voteCount / proposal.requiredVotes) * 100
+                        }%`,
+                      }}
+                    ></div>
+                  </div>
+                  <div className=" mt-2">
+                    VOTES DELEGATED <br />
+                    <span className="text-xl font-semibold">
+                      {" "}
+                      <span
+                        className={
+                          proposal.executed
+                            ? "text-green-500 "
+                            : "text-red-500 "
+                        }
+                      >
+                        {proposal.voteCount}
+                      </span>{" "}
+                      / {proposal.requiredVotes}
+                    </span>
+                  </div>
+                  <h1 className="mt-5 text-black">
+                    This proposal needs {proposal.requiredVotes} votes to
+                    progress and can be terminated by the author at any time.
+                  </h1>
+                </div>
+              </CardDescription>
+            </Card>
+
+            <Card className="mx-auto w-full max-w-screen-sm">
+              <CardHeader className="">
+                <CardTitle className="text-center">Proposal Details</CardTitle>
+                <hr />
+                <CardDescription className=" text-center">
+                  
+                </CardDescription>
+               {proposal.description}
+              </CardHeader>
+              <CardContent></CardContent>
             </Card>
             <ToastContainer />
           </>

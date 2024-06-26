@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import { Button } from "@/components/ui/button";
@@ -97,15 +97,17 @@ export default function Proposal() {
         </Card>
         <Card className="mx-auto w-full max-w-screen-md">
           <CardHeader className="">
-            <CardTitle className = 'text-center'>New Proposals</CardTitle>
-              <hr />
-            <div className="flex justify-center">
-              <Link href="/CreateProposal">
+            <div className="flex justify-between">
+              <h1 className="text-center font-semibold mt-9 md:text-xl ">
+                New Proposals
+              </h1>
+            <Link href="/CreateProposal">
                 <Button className="bg-pink-500 text-white mt-5">
                   Create Proposal
                 </Button>
               </Link>
             </div>
+            <hr />
           </CardHeader>
           <CardContent>
             <Table>

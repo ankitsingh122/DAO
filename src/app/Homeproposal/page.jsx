@@ -38,7 +38,7 @@ export default function HomeProposal() {
               and finding others who support you. Once your proposal reaches 400
               delegate votes, it will be displayed on the Fish.vote home page.
               <br />
-              <br />
+              
               Until today, only whales with 10 million votes could submit
               proposals. Now,{" "}
               <span className="text-red-500">even fish can make waves</span>.
