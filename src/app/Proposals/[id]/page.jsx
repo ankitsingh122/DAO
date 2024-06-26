@@ -109,6 +109,9 @@ export default function ProposalDetail({ params }) {
         ) : proposal ? (
           <>
             <div className="mx-auto w-full max-w-screen-sm justify-start mb-4">
+              <Link href= '/'>
+                <h1 className="text-sm py-2"> {"<-"} Home</h1>
+              </Link>
               <Badge
                 variant="default"
                 className={
@@ -177,10 +180,8 @@ export default function ProposalDetail({ params }) {
               <CardHeader className="">
                 <CardTitle className="text-center">Proposal Details</CardTitle>
                 <hr />
-                <CardDescription className=" text-center">
-                  
-                </CardDescription>
-               {proposal.description}
+                <CardDescription className=" text-center"></CardDescription>
+                {proposal.description}
               </CardHeader>
               <CardContent></CardContent>
             </Card>
