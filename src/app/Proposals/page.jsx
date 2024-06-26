@@ -101,7 +101,7 @@ export default function Proposal() {
               <h1 className="text-center font-semibold mt-9 md:text-xl ">
                 New Proposals
               </h1>
-            <Link href="/CreateProposal">
+              <Link href="/CreateProposal">
                 <Button className="bg-pink-500 text-white mt-5">
                   Create Proposal
                 </Button>
@@ -111,15 +111,15 @@ export default function Proposal() {
           </CardHeader>
           <CardContent>
             <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="font-bold">Title</TableHead>
+              {/* <TableHeader> */}
+              {/* <TableRow> */}
+              {/* <TableHead className="font-bold">Title</TableHead>
                   <TableHead className="text-center font-bold">
                     Vote Count
                   </TableHead>
-                  <TableHead className="text-right font-bold">Status</TableHead>
-                </TableRow>
-              </TableHeader>
+                  <TableHead className="text-right font-bold">Status</TableHead> */}
+              {/* </TableRow> */}
+              {/* </TableHeader> */}
               <TableBody>
                 {isLoading ? (
                   <TableRow>
@@ -134,11 +134,13 @@ export default function Proposal() {
                       className="cursor-pointer"
                       onClick={() => handleRowClick(index)}
                     >
-                      <TableCell>{proposal.title}</TableCell>
-                      <TableCell className="text-center">
-                        {proposal.voteCount.toString()} votes
+                      
+                      <TableCell>
+                        <span className="text-md font-medium"> {proposal.title}</span>{" "}
+                        <br /> {proposal.voteCount.toString()} votes
                       </TableCell>
-                      <TableCell className="text-right">
+
+                      <TableCell className="text-xs">
                         <Badge
                           variant="default"
                           className={
@@ -146,6 +148,7 @@ export default function Proposal() {
                               ? "bg-green-500 text-white"
                               : "bg-yellow-500 text-white"
                           }
+                        
                         >
                           {proposal.executed ? "Proposed" : "In Progress"}
                         </Badge>
