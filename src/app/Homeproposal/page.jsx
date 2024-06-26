@@ -30,6 +30,7 @@ export default function HomeProposal() {
         <Card className="mx-auto w-full max-w-screen-md text-center">
           <CardHeader>
             <CardTitle>Creating a Proposal</CardTitle>
+            <hr />
             <CardDescription>
               On Fish.vote, anyone can publish a Crowd Proposal . Then comes the
               most important work: gathering support from the broader UNI
@@ -45,13 +46,13 @@ export default function HomeProposal() {
           </CardHeader>
         </Card>
         <Card className="mx-auto w-full max-w-screen-md">
-          <CardHeader className="flex justify-between items-center">
-            <CardTitle>New proposals</CardTitle>
-            <Link href="/CreateProposal">
-              <Link href="/Proposals">
-                {" "}
-                <CardDescription className="mt-5 text-center">
-                  Nothing here yet <br />
+          <CardHeader className="">
+            <CardTitle className="text-center">New Proposals</CardTitle>
+            <hr />
+            <CardDescription className=" text-center">
+              <div className="mt-5">
+                Nothing here yet <br /> 
+                <Link href="/Proposals">
                   <span className="text-red-500">
                     Read new proposals
                     <svg
@@ -71,12 +72,16 @@ export default function HomeProposal() {
                       />
                     </svg>
                   </span>
-                </CardDescription>
+                </Link>
+              </div>
+            </CardDescription>
+            <div className="flex justify-center">
+              <Link href="/CreateProposal">
+                <Button className="bg-pink-500 text-white mt-5">
+                  Create Proposal
+                </Button>
               </Link>
-              <Button className="bg-pink-500 text-white mt-5">
-                Create Proposal
-              </Button>
-            </Link>
+            </div>
           </CardHeader>
           <CardContent>
             <Table>

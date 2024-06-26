@@ -101,10 +101,10 @@ export default function ProposalDetail({ params }) {
       </header>
       <main className="flex flex-col items-center w-full max-w-4xl mt-8 space-y-8">
         {isLoading ? (
-          <div className="loading-container">
-            <div className="spinner"></div>
-            <p>Loading...</p>
-          </div>
+<div className="loading-container">
+      <div className="spinner"></div>
+      <p>Loading...</p>
+    </div>
         ) : proposal ? (
           <>
             <div className="w-full max-w-md mb-4">

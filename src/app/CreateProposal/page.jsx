@@ -72,7 +72,7 @@ export default function CreateProposal() {
         <ConnectWallet />
       </header>
 
-      <div className="font-bold text-4xl mt-12">Create a new proposal</div>
+      <div className="font-bold text-4xl mt-12">Create a new Proposal</div>
 
       <div className="flex flex-col space-y-5 items-center justify-center mt-10">
         <Card className="w-screen max-w-3xl">

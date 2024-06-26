@@ -81,6 +81,7 @@ export default function Proposal() {
         <Card className="mx-auto w-full max-w-screen-md text-center">
           <CardHeader>
             <CardTitle>Creating a Proposal</CardTitle>
+            <hr />
             <CardDescription>
               On Fish.vote, anyone can publish a Crowd Proposal . Then comes the
               most important work: gathering support from the broader UNI
@@ -95,13 +96,16 @@ export default function Proposal() {
           </CardHeader>
         </Card>
         <Card className="mx-auto w-full max-w-screen-md">
-          <CardHeader className="flex justify-between items-center">
-            <CardTitle>New proposals</CardTitle>
-            <Link href="/CreateProposal">
-              <Button className="bg-pink-500 text-white mt-5">
-                Create Proposal
-              </Button>
-            </Link>
+          <CardHeader className="">
+            <CardTitle className = 'text-center'>New Proposals</CardTitle>
+              <hr />
+            <div className="flex justify-center">
+              <Link href="/CreateProposal">
+                <Button className="bg-pink-500 text-white mt-5">
+                  Create Proposal
+                </Button>
+              </Link>
+            </div>
           </CardHeader>
           <CardContent>
             <Table>
