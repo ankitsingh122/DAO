@@ -47,9 +47,13 @@ export default function CreateProposal() {
     );
 
     try {
-      const tx = await proposalContract.createProposal(title, overview, {
-        gasLimit: 600000,
-      });
+     const gasEstimate = await proposalContract.estimateGas.createProposal(
+       title,
+       overview
+     );
+     const tx = await proposalContract.createProposal(title, overview, {
+       gasLimit: gasEstimate,
+     });
       await tx.wait();
       console.log(tx, "transaction");
       toast.success("Proposal created successfully!");
