@@ -78,9 +78,9 @@ export default function Proposal() {
           </Link>
           <Button variant="outline">New</Button>
         </div>
-        <Card className="mx-auto w-full max-w-screen-md text-center">
+        <Card className="mx-auto w-full max-w-screen-md ">
           <CardHeader>
-            <CardTitle>Creating a Proposal</CardTitle>
+            <CardTitle className="text-center">Creating a Proposal</CardTitle>
             <hr />
             <CardDescription>
               On Fish.vote, anyone can publish a Crowd Proposal . Then comes the
@@ -98,11 +98,11 @@ export default function Proposal() {
         <Card className="mx-auto w-full max-w-screen-md">
           <CardHeader>
             <div className="flex justify-between items-center">
-              <h1 className="text-center font-semibold mt-9 md:text-xl">
+              <h1 className="text-center font-semibold mt-3  md:text-xl">
                 New Proposals
               </h1>
               <Link href="/CreateProposal">
-                <Button className="bg-pink-500 text-white mt-5">
+                <Button className="bg-pink-500 text-white">
                   Create Proposal
                 </Button>
               </Link>
@@ -112,17 +112,17 @@ export default function Proposal() {
           <CardContent>
             <Table>
               {/* <TableHeader> */}
-                {/* <TableRow> */}
-                  {/* <TableHead className="w-1/2 text-left font-bold">
+              {/* <TableRow> */}
+              {/* <TableHead className="w-1/2 text-left font-bold">
                     Title
                   </TableHead> */}
-                  {/* <TableHead className="w-1/3 text-center font-bold">
+              {/* <TableHead className="w-1/3 text-center font-bold">
                     Vote Count
                   </TableHead> */}
-                  {/* <TableHead className="w-1/2 text-right font-bold">
+              {/* <TableHead className="w-1/2 text-right font-bold">
                     Status
                   </TableHead> */}
-                {/* </TableRow> */}
+              {/* </TableRow> */}
               {/* </TableHeader> */}
               <TableBody>
                 {isLoading ? (
@@ -139,11 +139,13 @@ export default function Proposal() {
                       onClick={() => handleRowClick(index)}
                     >
                       <TableCell className="w-4/5">
-                        <span className=" text-lg font-medium">{proposal.title}</span> <br />{" "}
-                        {proposal.voteCount.toString()} votes
+                        <span className=" text-lg font-medium">
+                          {proposal.title}
+                        </span>{" "}
+                        <br /> {proposal.voteCount.toString()} votes
                       </TableCell>
                       {/* <TableCell className="w-1/3 text-center"></TableCell> */}
-                      <TableCell className="w-1/2 text-right text-xs">
+                      <TableCell className="w-1/2 text-right">
                         <Badge
                           variant="default"
                           className={`inline-block px-2 py-1 rounded-full ${

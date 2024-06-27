@@ -6,9 +6,9 @@ import "react-toastify/dist/ReactToastify.css";
 
 import {
   Card,
-  CardHeader,
   CardTitle,
   CardDescription,
+  CardHeader,
   CardContent,
   CardFooter,
 } from "@/components/ui/card";
@@ -75,10 +75,16 @@ export default function CreateProposal() {
         </div>
         <ConnectWallet />
       </header>
+      <div className="mx-auto w-full max-w-screen-sm justify-start mb-4">
+        <Link href="/">
+          <h1 className="text-sm mt-4"> {"<-"} Home</h1>
+        </Link>
+        <div className="font-semibold text-4xl py-4">
+          Create a new Proposal
+        </div>
+      </div>
 
-      <div className="font-bold text-4xl mt-12">Create a new Proposal</div>
-
-      <div className="flex flex-col space-y-5 items-center justify-center mt-10">
+      <div className="mx-auto w-full max-w-screen-sm justify-start mb-4">
         <Card className="w-screen max-w-3xl">
           <CardHeader>
             <CardTitle>Proposal Description</CardTitle>
@@ -109,7 +115,12 @@ export default function CreateProposal() {
             </div>
           </CardContent>
           <CardFooter className="flex justify-end">
-            <Button className="hover:bg-white hover:text-black hover:border-2" onClick={handleCreateProposal}>Create Proposal</Button>
+            <Button
+              className="hover:bg-white hover:text-black hover:border-2"
+              onClick={handleCreateProposal}
+            >
+              Create Proposal
+            </Button>
           </CardFooter>
         </Card>
         <ToastContainer

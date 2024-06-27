@@ -27,9 +27,9 @@ export default function HomeProposal() {
             <Button variant="outline">New</Button>
           </Link>
         </div>
-        <Card className="mx-auto w-full max-w-screen-md text-center">
+        <Card className="mx-auto w-full max-w-screen-md ">
           <CardHeader>
-            <CardTitle>Creating a Proposal</CardTitle>
+            <CardTitle className='text-center'>Creating a Proposal</CardTitle>
             <hr />
             <CardDescription>
               On Fish.vote, anyone can publish a Crowd Proposal . Then comes the
@@ -38,7 +38,6 @@ export default function HomeProposal() {
               and finding others who support you. Once your proposal reaches 400
               delegate votes, it will be displayed on the Fish.vote home page.
               <br />
-              
               Until today, only whales with 10 million votes could submit
               proposals. Now,{" "}
               <span className="text-red-500">even fish can make waves</span>.
@@ -51,11 +50,10 @@ export default function HomeProposal() {
             <hr />
             <CardDescription className=" text-center">
               <div className="mt-5">
-                Nothing here yet <br /> 
+                Nothing here yet <br />
                 <Link href="/Proposals">
                   <span className="text-red-500">
                     Read new proposals {"->"}
-                   
                   </span>
                 </Link>
               </div>
