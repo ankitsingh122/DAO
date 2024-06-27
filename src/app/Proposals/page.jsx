@@ -26,7 +26,7 @@ import { useRouter } from "next/navigation";
 export default function Proposal() {
   const [proposals, setProposals] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const contractAddress = "0x1f49707d48Cc49FfF79617D9A1b8494F7D74b984";
+  const contractAddress = "0x18E53A850930bD457Ad77E255dd095B9c868D124";
 
   useEffect(() => {
     const fetchProposals = async () => {

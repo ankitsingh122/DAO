@@ -69,6 +69,16 @@ export const proposalABI = [
 				"internalType": "bool",
 				"name": "",
 				"type": "bool"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
 			}
 		],
 		"stateMutability": "view",
@@ -134,6 +144,16 @@ export const proposalABI = [
 				"internalType": "bool",
 				"name": "executed",
 				"type": "bool"
+			},
+			{
+				"internalType": "uint256",
+				"name": "creationTime",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "proposalCreator",
+				"type": "address"
 			}
 		],
 		"stateMutability": "view",

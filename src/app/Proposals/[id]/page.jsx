@@ -20,7 +20,7 @@ import "react-toastify/dist/ReactToastify.css";
 export default function ProposalDetail({ params }) {
   const [proposal, setProposal] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const contractAddress = "0x1f49707d48Cc49FfF79617D9A1b8494F7D74b984";
+  const contractAddress = "0x18E53A850930bD457Ad77E255dd095B9c868D124";
 
   useEffect(() => {
     const id = params?.id;
@@ -35,9 +35,17 @@ export default function ProposalDetail({ params }) {
           provider
         );
 
-        const [, title, description, voteCount, executed] =
-          await contract.getProp(id);
+        const [
+          ,
+          title,
+          description,
+          voteCount,
+          executed,
+          creationDate,
+          proposalCreator,
+        ] = await contract.getProp(id);
         const requiredVotes = await contract.REQUIRED_VOTES();
+        
 
         if (!title || !description) {
           throw new Error("Proposal data not found");
@@ -49,6 +57,9 @@ export default function ProposalDetail({ params }) {
           executed,
           voteCount: voteCount.toString(),
           requiredVotes: requiredVotes.toString(),
+          // ownerAddress,
+         creationDate: new Date(creationDate * 1000).toLocaleString(),
+          proposalCreator
         });
         setIsLoading(false);
       } catch (error) {
@@ -122,7 +133,14 @@ export default function ProposalDetail({ params }) {
               >
                 {proposal.executed ? "Proposed" : "In Progress"}
               </Badge>
+
               <h1 className="mt-5 text-4xl font-semibold">{proposal.title}</h1>
+              <h1 className="text-sm mt-5">
+                <span className="font-medium">Proposed by</span>{" "}
+                {proposal.proposalCreator} <br />
+                <span className="font-medium">Created </span>
+                {proposal.creationDate}
+              </h1>
             </div>
 
             <Card className="mx-auto w-full max-w-screen-sm">
