@@ -70,7 +70,7 @@ export default function CreateProposal() {
       <header className="w-full flex justify-between items-center p-4 bg-white shadow-md">
         <div className="flex items-center">
           <Link href="/">
-            <LogInIcon className="h-8 w-8 text-pink-500" />
+            <LogInIcon className="h-8 w-8 text-pink-500"/>
           </Link>
         </div>
         <ConnectWallet />

@@ -66,11 +66,11 @@ export default function HomeProposal() {
               </Link>
             </div>
           </CardHeader>
-          <CardContent>
+          {/* <CardContent>
             <Table>
               <TableBody></TableBody>
             </Table>
-          </CardContent>
+          </CardContent> */}
         </Card>
       </main>
     </div>

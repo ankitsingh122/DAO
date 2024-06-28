@@ -1,4 +1,4 @@
-"use client";
+
 
 import HomeProposal from "./Homeproposal/page";
 const HomePage = () => {

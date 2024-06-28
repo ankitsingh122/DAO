@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { Button } from "@/components/ui/button";
@@ -11,7 +10,7 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
-import { ConnectWallet } from "@thirdweb-dev/react";
+import { ConnectWallet, useAddress } from "@thirdweb-dev/react";
 import { proposalABI } from "../../Proposal";
 import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
@@ -21,6 +20,7 @@ export default function ProposalDetail({ params }) {
   const [proposal, setProposal] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const contractAddress = "0x18E53A850930bD457Ad77E255dd095B9c868D124";
+  const address = useAddress();
 
   useEffect(() => {
     const id = params?.id;
@@ -45,7 +45,6 @@ export default function ProposalDetail({ params }) {
           proposalCreator,
         ] = await contract.getProp(id);
         const requiredVotes = await contract.REQUIRED_VOTES();
-        
 
         if (!title || !description) {
           throw new Error("Proposal data not found");
@@ -58,8 +57,8 @@ export default function ProposalDetail({ params }) {
           voteCount: voteCount.toString(),
           requiredVotes: requiredVotes.toString(),
           // ownerAddress,
-         creationDate: new Date(creationDate * 1000).toLocaleString(),
-          proposalCreator
+          creationDate: new Date(creationDate * 1000).toLocaleString(),
+          proposalCreator,
         });
         setIsLoading(false);
       } catch (error) {
@@ -72,6 +71,11 @@ export default function ProposalDetail({ params }) {
   }, [params]);
 
   const handleVote = async () => {
+      if (!address) {
+        toast.info("Please connect your wallet.");
+        return;
+      }
+
     const id = params?.id;
     try {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
