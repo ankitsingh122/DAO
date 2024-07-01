@@ -111,19 +111,19 @@ export default function Proposal() {
           </CardHeader>
           <CardContent>
             <Table>
-              {/* <TableHeader> */}
-              {/* <TableRow> */}
-              {/* <TableHead className="w-1/2 text-left font-bold">
+              <TableHeader>
+              <TableRow>
+              <TableHead className="w-4/5 text-left font-bold">
                     Title
-                  </TableHead> */}
+                  </TableHead>
               {/* <TableHead className="w-1/3 text-center font-bold">
                     Vote Count
                   </TableHead> */}
-              {/* <TableHead className="w-1/2 text-right font-bold">
+              <TableHead className="w-1/5 text-right font-bold">
                     Status
-                  </TableHead> */}
-              {/* </TableRow> */}
-              {/* </TableHeader> */}
+                  </TableHead>
+              </TableRow>
+              </TableHeader>
               <TableBody>
                 {isLoading ? (
                   <TableRow>
@@ -145,7 +145,7 @@ export default function Proposal() {
                         <br /> {proposal.voteCount.toString()} votes
                       </TableCell>
                       {/* <TableCell className="w-1/3 text-center"></TableCell> */}
-                      <TableCell className="w-1/2 text-right">
+                      <TableCell className=" w-1/5 text-right">
                         <Badge
                           variant="default"
                           className={`inline-block px-2 py-1 rounded-full ${

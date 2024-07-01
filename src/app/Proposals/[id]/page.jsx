@@ -56,7 +56,6 @@ export default function ProposalDetail({ params }) {
           executed,
           voteCount: voteCount.toString(),
           requiredVotes: requiredVotes.toString(),
-          // ownerAddress,
           creationDate: new Date(creationDate * 1000).toLocaleString(),
           proposalCreator,
         });
