@@ -98,3 +98,18 @@
   animation: spin 1s linear infinite;
 }
 
+/* globals.css */
+
+html, body {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.light {
+  background-color: #f3f4f6; /* bg-gray-100 */
+  color: #000; /* text-black */
+}
+
+body.dark {
+  background-color: #1f2937; /* bg-gray-800 */
+  color: #fff; /* text-white */
+}
