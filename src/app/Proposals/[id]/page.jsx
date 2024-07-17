@@ -10,7 +10,7 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
-import { ConnectWallet, useAddress } from "@thirdweb-dev/react";
+import { useAddress } from "@thirdweb-dev/react";
 import { proposalABI } from "../../Proposal";
 import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
@@ -208,7 +208,7 @@ export default function ProposalDetail({ params }) {
             <ToastContainer />
           </>
         ) : (
-          <p>Proposal not found</p>
+          <p className="flex justify-center text-5xl">Proposal not found</p>
         )}
       </main>
     </>

@@ -23,38 +23,38 @@ export default function HomeProposal() {
 
   useEffect(() => {
     setIsClient(true);
-
-    const fetchProposals = async () => {
-      try {
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const signer = provider.getSigner();
-        const contract = new ethers.Contract(
-          contractAddress,
-          proposalABI,
-          signer
-        );
-        const nextProposalId = await contract.nextProposalId();
-        const proposalArray = [];
-
-        for (let i = 0; i < nextProposalId; i++) {
-          const proposal = await contract.proposals(i);
-          proposalArray.push(proposal);
-        }
-
-        const filteredProposals = proposalArray.filter(
-          (proposal) => proposal.voteCount.toNumber() > 50
-        );
-
-        setProposals(filteredProposals);
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error fetching proposals:", error);
-        setIsLoading(false);
-      }
-    };
-
-    fetchProposals();
+  fetchProposals();
   }, []);
+
+
+   const fetchProposals = async () => {
+     try {
+       const provider = new ethers.providers.Web3Provider(window.ethereum);
+       const signer = provider.getSigner();
+       const contract = new ethers.Contract(
+         contractAddress,
+         proposalABI,
+         signer
+       );
+       const nextProposalId = await contract.nextProposalId();
+       const proposalArray = [];
+
+       for (let i = 0; i < nextProposalId; i++) {
+         const proposal = await contract.proposals(i);
+         proposalArray.push(proposal);
+       }
+
+       const filteredProposals = proposalArray.filter(
+         (proposal) => proposal.voteCount.toNumber() > 50
+       );
+
+       setProposals(filteredProposals);
+       setIsLoading(false);
+     } catch (error) {
+       console.error("Error fetching proposals:", error);
+       setIsLoading(false);
+     }
+   };
 
   const router = useRouter();
 
@@ -91,7 +91,7 @@ export default function HomeProposal() {
               <div className="text-center">Loading...</div>
             ) : proposals.length === 0 ? (
               <CardDescription className="text-center">
-                <span className=" font-medium ">Nothing here yet</span> <br />
+                <span className=" font-semibold text-medium ">Nothing here yet</span> <br />
                 <p className="p-5">
                   The home page only shows proposals with <br /> 50 votes or
                   more. Once there are proposals <br /> with more support,
